@@ -1,0 +1,89 @@
+/* login.css */
+
+.login-contenedor {
+  max-width: 40rem;
+  margin: 6rem auto;
+  padding: 3rem 2rem;
+  background: var(--negro);
+  border-radius: 2rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  color: var(--blanco);
+}
+
+.login-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.login-formulario label {
+  font-size: 1.4rem;
+  color: var(--grisClaro);
+}
+
+.login-formulario input {
+  padding: 0.8rem 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid var(--grisOscuro);
+  background: var(--grisOscuro);
+  color: var(--blanco);
+  font-size: 1.4rem;
+  transition: border 0.2s;
+}
+
+.login-formulario input:focus {
+  outline: none;
+  border: 1.5px solid var(--primario);
+}
+
+.login-formulario button {
+  background: var(--primario);
+  color: var(--blanco);
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 1rem 0;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.login-formulario button:hover {
+  background: var(--blanco);
+  color: var(--primario);
+}
+
+.login-error {
+  text-align: center;
+  color: #e74c3c; /* rojo error */
+  font-weight: 700;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+}
+
+.login-register-text {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  color: var(--grisClaro);
+}
+
+.login-register-link {
+  color: var(--primario);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.login-register-link:hover {
+  color: var(--secundario);
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-contenedor {
+    margin: 3rem 1rem;
+    padding: 2rem 1rem;
+  }
+}
