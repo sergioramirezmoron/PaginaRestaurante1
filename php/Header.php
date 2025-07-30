@@ -20,6 +20,8 @@ session_start();
     <link rel="stylesheet" href="styles/nuevo_plato.css" />
     <link rel="stylesheet" href="styles/register.css" />
     <link rel="stylesheet" href="styles/login.css" />
+    <link rel="stylesheet" href="styles/editar_platos.css" />
+    <link rel="stylesheet" href="styles/editar_platos_form.css" />
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <title>Restaurante El Olivo</title>
   </head>

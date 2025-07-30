@@ -1,0 +1,118 @@
+/* Contenedor principal del menú */
+.menu {
+  max-width: 70rem;
+  margin: 4rem auto 5rem auto;
+  padding: 3rem 2rem;
+  background: var(--negro);
+  border-radius: 2rem;
+  color: var(--blanco);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Título principal */
+.menu-title {
+  font-size: 3rem;
+  color: var(--primario);
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Tabla de platos */
+.editar-platos-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.6rem;
+}
+
+.editar-platos-table thead {
+  background-color: var(--grisOscuro);
+}
+
+.editar-platos-table th,
+.editar-platos-table td {
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+  vertical-align: middle;
+}
+
+/* Separar botones dentro de acciones */
+.editar-platos-table td:last-child {
+  display: flex;
+  gap: 1rem;          /* espacio entre botones */
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.editar-platos-table th {
+  color: var(--secundario);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Precio con estilo */
+.precio {
+  color: var(--primario);
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Enlace de editar */
+.editar-link,
+.eliminar-link {
+  padding: 0.5rem 1rem;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  font-family: "Segoe UI", Arial, sans-serif;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Botón Editar */
+.editar-link {
+  background-color: var(--primario);
+  color: var(--negro);
+}
+
+.editar-link:hover {
+  background-color: var(--secundario);
+  color: var(--blanco);
+}
+
+/* Botón Eliminar */
+.eliminar-link {
+  background-color: #e74c3c; /* rojo */
+  color: #fff;
+}
+
+.eliminar-link:hover {
+  background-color: #c0392b; /* rojo oscuro */
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .menu {
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
+  }
+  .menu-title {
+    font-size: 2.1rem;
+  }
+  .editar-platos-table th,
+  .editar-platos-table td {
+    font-size: 1.2rem;
+    padding: 0.6rem 1rem;
+  }
+  .editar-link,
+  .eliminar-link {
+    padding: 0.4rem 0.8rem;
+    font-size: 1.2rem;
+  }
+}

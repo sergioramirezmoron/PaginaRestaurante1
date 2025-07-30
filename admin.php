@@ -18,6 +18,7 @@ if (!isset($_SESSION['usuario']) || $_SESSION['es_admin'] != 1) {
   <!-- Links para añadir plato y salir -->
   <nav>
     <a href="nuevo_plato.php" class="admin-link">Añadir nuevo plato</a> | 
+    <a href="editar_platos.php" class="admin-link">Editar Platos</a> | 
     <a href="logout.php" class="admin-link">Salir</a>
   </nav>
 
