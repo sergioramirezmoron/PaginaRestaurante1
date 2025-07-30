@@ -1,5 +1,7 @@
 <?php
+include 'php/Header.php';
 session_start();
+
 if (!isset($_SESSION['usuario']) || $_SESSION['es_admin'] != 1) {
   header('Location: login.php');
   exit;
@@ -8,12 +10,13 @@ if (!isset($_SESSION['usuario']) || $_SESSION['es_admin'] != 1) {
 include 'php/conexion.php';
 
 $mensaje = "";
+$mensaje_clase = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['nombre'];
     $descripcion = $_POST['descripcion'];
     $precio = $_POST['precio'];
-    $imagen = $_POST['imagen']; // puede ser una URL por ahora
+    $imagen = $_POST['imagen'];
     $categoria = $_POST['categoria'];
 
     $sql = "INSERT INTO platos (nombre, descripcion, precio, imagen, categoria) 
@@ -23,8 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         $mensaje = "✅ Plato añadido correctamente.";
+        $mensaje_clase = "exito";
     } else {
         $mensaje = "❌ Error al añadir el plato.";
+        $mensaje_clase = "error";
     }
 
     $stmt->close();
@@ -32,33 +37,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<h1>Añadir nuevo plato</h1>
+<div class="nuevo-plato-contenedor">
 
-<?php if (!empty($mensaje)) echo "<p>$mensaje</p>"; ?>
+  <h1 class="nuevo-plato-titulo">Añadir nuevo plato</h1>
 
-<form method="POST">
-  <label>Nombre:</label><br>
-  <input type="text" name="nombre" required><br><br>
+  <?php if (!empty($mensaje)) : ?>
+    <p class="nuevo-plato-mensaje <?php echo $mensaje_clase; ?>"><?php echo $mensaje; ?></p>
+  <?php endif; ?>
 
-  <label>Descripción:</label><br>
-  <textarea name="descripcion" rows="4"></textarea><br><br>
+  <form method="POST" class="nuevo-plato-formulario">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" palceholder="El nombre del plato" required>
 
-  <label>Precio (€):</label><br>
-  <input type="number" step="0.01" name="precio" required><br><br>
+    <label>Descripción (opcional):</label>
+    <textarea name="descripcion" rows="4" palceholder="Pequeña descripción (opcional)"></textarea>
 
-  <label>URL de imagen:</label><br>
-  <input type="text" name="imagen"><br><br>
+    <label>Precio (€):</label>
+    <input type="number" step="0.01" name="precio" palceholder="Precio del plato" min="0.01" required>
 
-  <label>Categoría:</label><br>
-  <select name="categoria" required>
-    <option value="Bocadillos">Bocadillos</option>
-    <option value="Hamburguesas">Hamburguesas</option>
-    <option value="Carnes">Carnes</option>
-    <option value="Pescados">Pescados</option>
-    <option value="Ensaladas">Ensaladas</option>
-    <option value="Postres">Postres</option>
-    <option value="Bebidas">Bebidas</option>
-  </select><br><br>
+    <label>URL de imagen (opcional):</label>
+    <input type="text" name="imagen" palceholder="URL de la imagen del plato (opcional)">
 
-  <button type="submit">Añadir plato</button>
-</form>
+    <label>Categoría:</label>
+    <select name="categoria" required>
+      <option value="Bocadillos">Bocadillos</option>
+      <option value="Hamburguesas">Hamburguesas</option>
+      <option value="Carnes">Carnes</option>
+      <option value="Pescados">Pescados</option>
+      <option value="Ensaladas">Ensaladas</option>
+      <option value="Postres">Postres</option>
+      <option value="Bebidas">Bebidas</option>
+    </select>
+
+    <button type="submit">Añadir plato</button>
+  </form>
+
+</div>
+
+<?php include 'php/Footer.php'; ?>

@@ -1,0 +1,105 @@
+/* nuevo_plato.css */
+
+/* Contenedor principal */
+.nuevo-plato-contenedor {
+  max-width: 70rem;
+  margin: 4rem auto 5rem auto;
+  padding: 3rem 2rem;
+  background: var(--negro);
+  border-radius: 2rem;
+  color: var(--blanco);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+/* Título */
+.nuevo-plato-titulo {
+  font-size: 3rem;
+  color: var(--primario);
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Mensaje */
+.nuevo-plato-mensaje {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.nuevo-plato-mensaje.exito {
+  color: #2ecc71; /* verde */
+}
+
+.nuevo-plato-mensaje.error {
+  color: #e74c3c; /* rojo */
+}
+
+/* Formulario */
+.nuevo-plato-formulario {
+  max-width: 50rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.nuevo-plato-formulario label {
+  color: var(--grisClaro);
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.nuevo-plato-formulario input,
+.nuevo-plato-formulario textarea,
+.nuevo-plato-formulario select {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--grisOscuro);
+  border-radius: 0.7rem;
+  background: var(--grisOscuro);
+  color: var(--blanco);
+  font-size: 1.4rem;
+  resize: vertical;
+  transition: border 0.2s;
+}
+
+.nuevo-plato-formulario input:focus,
+.nuevo-plato-formulario textarea:focus,
+.nuevo-plato-formulario select:focus {
+  outline: none;
+  border: 1.5px solid var(--primario);
+}
+
+.nuevo-plato-formulario button {
+  background: var(--primario);
+  color: var(--blanco);
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nuevo-plato-formulario button:hover {
+  background: var(--blanco);
+  color: var(--primario);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nuevo-plato-contenedor {
+    padding: 2rem 1rem;
+  }
+
+  .nuevo-plato-titulo {
+    font-size: 2.4rem;
+  }
+
+  .nuevo-plato-formulario {
+    max-width: 100%;
+  }
+}
