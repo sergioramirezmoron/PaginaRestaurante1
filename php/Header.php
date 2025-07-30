@@ -28,7 +28,7 @@ session_start();
     <header>
       <div class="container">
         <div class="starter">
-          <h1>Restaurante El Olivo</h1>
+          <a class="titulo" href="index.php">Restaurante El Olivo</a>
           <p class="bienvenida-sesion">
             <?php if (isset($_SESSION['usuario'])): ?>
               Bienvenido, <?php echo htmlspecialchars($_SESSION['usuario']); ?>.
@@ -36,7 +36,7 @@ session_start();
               No ha iniciado sesión.
             <?php endif; ?>
           </p>
-          <p>
+          <p class="descripcion">
             Disfruta del sabor auténtico en El Olivo, donde la tradición y la
             cocina mediterránea se encuentran en cada plato.
           </p>
@@ -46,7 +46,11 @@ session_start();
           <a href="index.php" class="enlace<?php if(basename($_SERVER['PHP_SELF']) == 'index.php') echo ' active'; ?>">Info</a>
           <a href="menu.php" class="enlace<?php if(basename($_SERVER['PHP_SELF']) == 'menu.php') echo ' active'; ?>">Menú</a>
           <a href="contacto.php" class="enlace<?php if(basename($_SERVER['PHP_SELF']) == 'contacto.php') echo ' active'; ?>">Contacto</a>
-          <a href="login.php" class="enlace<?php if(basename($_SERVER['PHP_SELF']) == 'login.php') echo ' active'; ?>">Iniciar Sesión</a>
+          <?php if (isset($_SESSION['usuario'])): ?>
+            <a href="logout.php" class="enlace<?php if(basename($_SERVER['PHP_SELF']) == 'logout.php') echo ' active'; ?>">Cerrar Sesión</a>
+          <?php else: ?>
+            <a href="login.php" class="enlace<?php if(basename($_SERVER['PHP_SELF']) == 'login.php') echo ' active'; ?>">Iniciar Sesión</a>
+          <?php endif; ?>
         </nav>
       </div>
     </header>

@@ -4,10 +4,10 @@
   grid-template-columns: 2fr 1fr 1fr;
   align-items: start;
   width: 100%;
-  padding: 0rem 3rem;
+  padding: 2rem 3rem;
 }
 
-.container h1 {
+.container .titulo {
   font-size: 4rem;
   text-transform: uppercase;
   color: var(--primario);
@@ -15,10 +15,21 @@
   padding-left: 3rem;
 }
 
-.container p {
+.container .titulo:hover {
+  color: var(--primario);
+}
+
+.container .descripcion {
   font-size: 2rem;
   padding: 0rem 2rem;
   color: var(--blanco);
+  text-align: left;
+}
+
+.container .bienvenida-sesion {
+  font-size: 2rem;
+  padding: 0rem 2rem;
+  color: var(--secundario);
   text-align: left;
 }
 
@@ -40,13 +51,14 @@
 
 .enlaces {
   padding-top: 2rem;
-  padding-right: 1rem;
+  padding-right: 2rem;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .enlace {
   text-align: right;
   margin-right: 1rem;
-  width: 100%;
 }
 
 /*ENCABEZADO RESPONSIVE*/
@@ -67,7 +79,6 @@
 
   .enlace {
     text-align: center;
-    border: 1px solid var(--grisOscuro);
   }
 
   .container h1,
