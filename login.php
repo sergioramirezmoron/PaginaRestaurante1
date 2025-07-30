@@ -1,6 +1,6 @@
 <?php
 include 'php/Header.php';
-//session_start();
+// session_start(); // Ya se ejecuta en Header.php
 include 'php/conexion.php';
 
 $error = "";
@@ -18,9 +18,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   if ($resultado && $resultado->num_rows === 1) {
     $fila = $resultado->fetch_assoc();
+    $hash = $fila['contrasena'];
 
-    // Verificar la contraseña usando password_verify
-    if (password_verify($contrasena, $fila['contrasena'])) {
+    // Verificar contraseña:
+    $valida = false;
+
+    // Si el hash es bcrypt (empieza por $2y$), usar password_verify
+    if (str_starts_with($hash, '$2y$')) {
+      $valida = password_verify($contrasena, $hash);
+    }
+    // Si es el admin con MD5 (caso específico)
+    elseif ($usuario === 'admin' && md5($contrasena) === $hash) {
+      $valida = true;
+    }
+
+    if ($valida) {
       $_SESSION['usuario'] = $fila['nombre_usuario'];
       $_SESSION['es_admin'] = $fila['es_admin'];
       header('Location: admin.php');
@@ -31,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   } else {
     $error = "Credenciales inválidas";
   }
+
   $stmt->close();
   $conn->close();
 }

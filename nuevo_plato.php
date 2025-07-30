@@ -1,6 +1,5 @@
 <?php
 include 'php/Header.php';
-session_start();
 
 if (!isset($_SESSION['usuario']) || $_SESSION['es_admin'] != 1) {
   header('Location: login.php');
