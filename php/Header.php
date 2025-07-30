@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="styles/index.css" />
     <link rel="stylesheet" href="styles/menu.css" />
     <link rel="stylesheet" href="styles/contacto.css" />
+    <link rel="stylesheet" href="styles/admin.css" />
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <title>Restaurante El Olivo</title>
   </head>

@@ -1,15 +1,28 @@
 <?php
+include 'php/Header.php';
 session_start();
 if (!isset($_SESSION['usuario']) || $_SESSION['es_admin'] != 1) {
   header('Location: login.php');
   exit;
 }
-include 'php/Header.php';
 ?>
 
-<h1>Panel de administración</h1>
-<p>Bienvenido, <?php echo htmlspecialchars($_SESSION['usuario']); ?></p>
-<a href="nuevo_plato.php">Añadir nuevo plato</a>
-<a href="logout.php">Salir</a>
+<!-- Contenedor principal con clase -->
+<div class="admin-contenedor">
+
+  <!-- Título con clase -->
+  <h1 class="admin-titulo">Panel de administración</h1>
+
+  <!-- Mensaje de bienvenida -->
+  <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['usuario']); ?></p>
+
+  <!-- Links para añadir plato y salir -->
+  <nav>
+    <a href="nuevo_plato.php" class="admin-link">Añadir nuevo plato</a> | 
+    <a href="logout.php" class="admin-link">Salir</a>
+  </nav>
+
+</div>
 
 <?php include 'php/Footer.php'; ?>
+

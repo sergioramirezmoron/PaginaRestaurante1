@@ -1,0 +1,52 @@
+/* admin.css */
+
+/* Contenedor principal */
+.admin-contenedor {
+  max-width: 70rem;
+  margin: 4rem auto 5rem auto;
+  padding: 3rem 2rem;
+  background: var(--negro);
+  border-radius: 2rem;
+  color: var(--blanco);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.admin-contenedor p,
+.admin-contenedor a {
+  text-align: center;
+  font-size: 2.4rem;
+}
+
+/* Título principal */
+.admin-titulo {
+  font-size: 3rem;
+  color: var(--primario);
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.admin-link {
+  color: var(--secundario);
+  font-weight: 700;
+  text-decoration: none;
+  margin: 0 1rem;
+  transition: color 0.2s;
+}
+
+.admin-link:hover {
+  color: var(--blanco);
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .admin-contenedor {
+    padding: 2rem 1rem;
+  }
+
+  .admin-titulo {
+    font-size: 2.4rem;
+  }
+}
